@@ -48,28 +48,9 @@ class Control extends CI_Controller {
     public function forms() {
     	$this->load->view('forms');
     }
-    
-    public function auth(){
-    	$nome = $_POST["nome"];
-    	$senha = $_POST["senha"];
-    	$this->load->model("model");
-    	$usr = $this->model->getUser($nome,$senha);
-    	if($usr !== false){
-    		if($usr === "admin"){
-    			$this->session->set_userdata("_ID","admim");
-    			redirect("/login/admin");
-    		}else{
-                $this->session->set_userdata("_ID",$comum);
-    		    $this->session->set_userdata("_NOME",$nome);
-    		    redirect("/login/comum");
-    		}
-    	}else{
-    		redirect("/login/entrar");
-    	}
-    }
 	
 }
 
 
-
-//http://github.com/romefeller/phpci -> repositório do professor - conteúdo das aulas - entregar aplicação funcionando e o repositório do github
+//http://github.com/romefeller/phpci -> repositório do professor - conteúdo das aulas - entregar aplicação funcionando 
+//e o repositório do github

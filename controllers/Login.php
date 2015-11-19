@@ -56,4 +56,20 @@
         }
     }
 }
+
+
+//como passar o projeto do c9.io para o github
+
+//git init
+//git add .
+//git commit -m "Meu primeiro commit"
+//git remote add origin https://github.com/vitor-santana/aula
+//criam o .gitignore dentro de application ou no mais do c9 -> new file -> /config /cache
+//colocar pasta a ser ignorada i.e /config
+//git -m "Com o .gitignore"
+//git push origin master
+
+//https://github.com/romefeller/phpci - repositório do professor - conteúdo das aulas - entregar a aplicação funcionando mais o repositório do github
+
+
 ?>
