@@ -15,7 +15,7 @@ class Control extends CI_Controller {
 	}
 	
 
-	public function reserva() {
+	public function formreserva() {
 		$this->load->view('formreserva');
 	}
 	
