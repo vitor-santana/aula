@@ -150,7 +150,7 @@
     <div class="modal fade" id="reserva" role="dialog">
       <div class="modal-dialog">
          <div class="modal-content">
-            <form class="form-horizontal" action="/index.php/controller/doPostReserva" method="post" accept-charset="utf-8">
+            <form class="form-horizontal" action="/index.php/control/doPostReserva" method="post" accept-charset="utf-8">
                 <div class="modal-header">
                   <h4>Reserve seu horário</h4>
                 </div>
