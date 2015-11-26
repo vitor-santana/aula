@@ -157,13 +157,13 @@
                    <div class="form-group">
                        <label for="nome" class="col-md-3 control-label">Nome:</label>
                        <div class="col-md-6">
-                           <input type="text" class="form-control" id="nome" placeholder="Nome Sobrenome">
+                           <input type="text" class="form-control" id="nome" placeholder="Nome Sobrenome" pattern="[a-z\s]+$">
                        </div>
                    </div>
                   <div class="form-group">
                      <label for="data" class="col-md-3 control-label">Escolha a data:</label>
                      <div class="col-md-4">
-                        <input type="date" class="form-control" id="data" placeholder="DD/MM/AAAA">                        
+                        <input type="date" class="form-control" id="data" placeholder="DD/MM/AAAA" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$" min="2015-11-01" max="2020-12-31">                        
                      </div>
                   </div>
                   <div class="form-group">    

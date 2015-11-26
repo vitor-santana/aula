@@ -1,36 +1,8 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php  
 
-class Controller extends CI_Controller {
-
-	
-	// /index.php/controller/welcome_message
-	public function index() {
-		$this->load->view('welcome_message');
-	}
-	
-	// /index.php/controller/index
-	public function home() {
-		$this->load->view('home');
-	}
-	
-	// /index.php/controller/reserva
-	public function formreserva() {
-		$this->load->view('formreserva');
-	}
-	
-	// /index.php/controller/menu
-	public function menu() {
-		$this->load->view('menu');
-	}
-	
-	// /index.php/controller/contato
-	public function formcontato() {
-		$this->load->view('formcontato');
-	}
-	
-	
-	public function forma(){
+class Restaurante extends CI_Controller{
+    
+    public function forma(){
     	$this->load->view('cli');
     }
     
@@ -87,10 +59,11 @@ class Controller extends CI_Controller {
 		 $this->load->model('contatodao');
 		 $b = $this->contatodao;
 		 $contatoID = $_POST["contatoID"];
-		 $tipoAssunto = $_POST["tipoAssunto"];
+		 $tipoAssunto = $_POST["assunto"];
 		 $nome = $_POST["nome"];
 		 $email = $_POST["email"];
-		 $mensagem = $_POST["mensagem"];
+		 $tituloMensagem = $_POST["tituloMensagem"];
+		 $conteudoMensagem = $_POST["conteudoMensagem"];
 		 $b->insert($cont);
 		 require_once APPPATH."models/entrega.php";
 		 $this->load->model('entregadao');
@@ -101,66 +74,124 @@ class Controller extends CI_Controller {
 		 $c->insert($entr);
 		 require_once APPPATH."models/frete.php";
 		 $this->load->model('fretedao');
-		 $m = $this->fretedao;
+		 $d = $this->fretedao;
 		 $freteID = $_POST["freteID"];
 		 $valor = $_POST["valor"];
 		 $d->insert($fret);
 		 require_once APPPATH."models/itenspedido.php";
 		 $this->load->model('itenspedidodao');
-		 $m = $this->itenspedidodao;
+		 $e = $this->itenspedidodao;
 		 $pedidoID = $_POST["pedidoID"];
 		 $refeicaoID = $_POST["refeicaoID"];
 		 $quantidade = $_POST["quantidade"];
-		 $d->insert($intped);
+		 $e->insert($intped);
 		 require_once APPPATH."models/login.php";
 		 $this->load->model('logindao');
-		 $e = $this->logindao;
+		 $f = $this->logindao;
 		 $loginID = $_POST["loginID"];
 		 $nomeLogin = $_POST["nomeLogin"];
 		 $senha = $_POST["senha"];
-		 $e->insert($log);
+		 $f->insert($log);
 		 require_once APPPATH."models/pedido.php";
 		 $this->load->model('pedidodao');
-		 $f = $this->pedidodao;
+		 $g = $this->pedidodao;
 		 $pedidoID = $_POST["pedidoID"];
 		 $data = $_POST["data"];
 		 $valorTotal = $_POST["valorTotal"];
 		 $clienteID = $_POST["clienteID"];
 		 $entregaID = $_POST["entregaID"];
 		 $freteID = $_POST["freteID"];
-		 $f->insert($ped);
+		 $g->insert($ped);
 		 require_once APPPATH."models/refeicao.php";
 		 $this->load->model('refeicaodao');
-		 $g = $this->refeicaodao;
+		 $h = $this->refeicaodao;
 		 $refeicaoID = $_POST["refeicaoID"];
 		 $nome = $_POST["nome"];
 		 $descricao = $_POST["descricao"];
 		 $valorUnitario = $_POST["valorUnitario"];
-		 $g->insert($ref);
+		 $h->insert($ref);
 		 require_once APPPATH."models/reserva.php";
 		 $this->load->model('reservadao');
-		 $h = $this->reservadao;
+		 $i = $this->reservadao;
 		 $reservaID = $_POST["reservaID"];
 		 $data = $_POST["data"];
 		 $hora = $_POST["hora"];
 		 $nome = $_POST["nome"];
 		 $quantidadePessoas = $_POST["quantidadePessoas"];
-		 $h->insert($res);
+		 $i->insert($res);
 	}
 	
-	// /index.php/control/listar
-	public function listar() {
-		require_once APPPATH."models/user.php";
-		$this->load->model('model');
-		$m = $this->model;
-		//verificar se deu certo
-		$usuarios = $m->searchAll();
-		//$data é o dicionário do php
-		$data['usuarios'] = $usuarios; //Obs: o nome ['usuarios'] deve ser o mesmo nome na view (lista.php) e no controllers (Control.php)
-		//"lista" é o nome da view
-		//$data é o vetor das variáveis usuários
-		$this->load->view("lista", $data);
-	}
-	
-
+	public function mostra(){
+	     $this->load->model('clientedao');
+		 $a = $this->clientedao;
+	     $q1 = $a->queryAll();
+		 $data['lista'] = $q;
+		 $this->load->view('mostra',$data);
+    }
+    
+    public function mostra2(){
+	     $this->load->model('contatodao');
+		 $b = $this->contatodao;
+	     $q2 = $b->queryAll();
+		 $data['lista'] = $q2;
+		 $this->load->view('mostra2',$data);
+    }
+    
+    public function mostra3(){
+	     $this->load->model('entregadao');
+		 $c = $this->entregadao;
+	     $q3 = $c->queryAll();
+		 $data['lista'] = $q3;
+		 $this->load->view('mostra3',$data);
+    }
+    
+    public function mostra4(){
+	     $this->load->model('fretedao');
+		 $d = $this->fretedao;
+	     $q4 = $d->queryAll();
+		 $data['lista'] = $q4;
+		 $this->load->view('mostra4',$data);
+    }
+    
+    public function mostra5(){
+	     $this->load->model('itenspedidodao');
+		 $e = $this->itenspedidodao;
+	     $q5 = $e->queryAll();
+		 $data['lista'] = $q5;
+		 $this->load->view('mostra5',$data);
+    }
+    
+    public function mostra6(){
+	     $this->load->model('logindao');
+		 $f = $this->logindao;
+	     $q6 = $f->queryAll();
+		 $data['lista'] = $q6;
+		 $this->load->view('mostra6',$data);
+    }
+    
+    public function mostra7(){
+	     $this->load->model('pedidodao');
+		 $g = $this->pedidodao;
+	     $q7 = $g->queryAll();
+		 $data['lista'] = $q7;
+		 $this->load->view('mostra7',$data);
+    }
+    
+    public function mostra8(){
+	     $this->load->model('refeicaodao');
+		 $h = $this->refeicaodao;
+	     $q8 = $h->queryAll();
+		 $data['lista'] = $q8;
+		 $this->load->view('mostra8',$data);
+    }
+    
+    public function mostra9(){
+	     $this->load->model('reservadao');
+		 $i = $this->reservadao;
+	     $q9 = $i->queryAll();
+		 $data['lista'] = $q9;
+		 $this->load->view('mostra9',$data);
+    }
+    
+    
 }

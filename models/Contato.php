@@ -1,14 +1,14 @@
 <?php
 
 class contato{
-    public $contatoID, $tipoAssunto, $nome, $email, $mensagem;
+    public $contatoID, $assunto, $nome, $email, $tituloMensagem, $conteudoMensagem;
 
     public function __construct(){
             $this->contadoID = $contatoID;
-            $this->tipoAssunto = $tipoAssunto;
+            $this->assunto = $assunto;
             $this->nome = $nome;
             $this->email = $email;
-            $this->mensagem = $mensagem;
+            $this->conteudoMensagem = $conteudoMensagem;
     }
     
     public function __set($contatoID, $value){
@@ -19,12 +19,12 @@ class contato{
         return $this->$contatoID;
     }
     
-    public function __set($tipoAssunto, $value){
-        $this->$tipoAssunto = $tipoAssunto;
+    public function __set($assunto, $value){
+        $this->$assunto = $assunto;
     }
     
-    public function __get($tipoAssunto){
-        return $this->$tipoAssunto;
+    public function __get($assunto){
+        return $this->$assunto;
     }
     
     public function __set($nome, $value){
@@ -43,12 +43,20 @@ class contato{
         return $this->$email;
     }
     
-    public function __set($mensagem, $value){
-        $this->$mensagem = $mensagem;
+    public function __set($tituloMensagem, $value){
+        $this->$tituloMensagem = $tituloMensagem;
     }
     
-    public function __get($mensagem){
-        return $this->$mensagem;
+    public function __get($tituloMensagem){
+        return $this->$tituloMensagem;
+    }
+    
+    public function __set($conteudoMensagem, $value){
+        $this->$conteudoMensagem = $conteudoMensagem;
+    }
+    
+    public function __get($conteudoMensagem){
+        return $this->$conteudoMensagem;
     }
 
 }
