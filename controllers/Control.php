@@ -29,7 +29,7 @@ class Control extends CI_Controller {
 		$this->load->view('formcontato');
 	}
 	
-	public function login() {
+	public function formlogin() {
 		$this->load->view('formlogin');
 	}
 	
