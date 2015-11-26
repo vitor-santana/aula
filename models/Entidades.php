@@ -17,12 +17,16 @@ class Cliente{
     
 }
 
-class Pedido{
-    public $id, $quantidade;
+class Reserva{
+    public $id, $nome, $data, $horario, $nm_pessoas;
     
     public function __construct(){
             $this->id = $id;
-            $this->quantidade = $quantidade;
+            $this->quantidade = $nome;
+            $this->id = $data;
+            $this->quantidade = $horario;
+            $this->id = $id;
+            $this->nm_pessoas = $nm_pessoas;
     }
     
 }
@@ -95,7 +99,7 @@ class Principal extends Refeicao{
     }
     
     public function calcPreco() {
-		return 30.90;
+		return 27.90;
 	}
 }
 

@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Control extends CI_Controller {
 
 	
-	public function index() {
+	/*public function index() {
 		$this->load->view('welcome_message');
 	}
 	
@@ -49,8 +49,43 @@ class Control extends CI_Controller {
     	$this->load->view('forms');
     }
 	
-}
+}*/
 
 
 //http://github.com/romefeller/phpci -> repositório do professor - conteúdo das aulas - entregar aplicação funcionando 
 //e o repositório do github
+
+	// /index.php/control/welcome_message
+	//public function index() {
+	//	$this->load->view('welcome_message');
+	//}
+	
+
+
+	// /index.php/controller/welcome_message
+	public function index() {
+		$this->load->view('welcome_message');
+	}
+	
+	// /index.php/controller/index
+	public function home() {
+		$this->load->view('home');
+	}
+	
+	// /index.php/controller/reserva
+	public function reserva() {
+		$this->load->view('reserva');
+	}
+	
+	// /index.php/controller/menu
+	public function menu() {
+		$this->load->view('menu');
+	}
+	
+	// /index.php/controller/contato
+	public function contato() {
+		$this->load->view('contato');
+	}
+	
+
+}
