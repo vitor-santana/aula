@@ -6,7 +6,7 @@ class Refeicao{
     
     public function __construct(){
             $this->refeicaoID = $refeiçãoID;
-            $this->preco = $nome;
+            $this->nome = $nome;
             $this->descricao = $descricao;
             $this->valorUnitario = $valorUnitario;
     }
